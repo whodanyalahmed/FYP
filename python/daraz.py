@@ -1,4 +1,3 @@
-from marshmallow import pre_dump
 from selenium import webdriver
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.common.keys import Keys
@@ -32,9 +31,9 @@ def Chrome(headless=False):
 
 
 def main(keyword):
-    keyword = keyword.replace(' ', '+')
+    keyword_url = keyword.replace(' ', '+')
     driver = Chrome(True)
-    url = 'https://www.daraz.pk/catalog/?q='+keyword
+    url = 'https://www.daraz.pk/smartphones/?from=input&q=' + keyword_url
 
     driver.get(url)
     # find div with id root
@@ -59,14 +58,26 @@ def main(keyword):
     print(len(title))
     print(len(price))
     print(len(img_Src))
-
+    price_list = []
     for i in range(len(title)):
-        print("="*30)
-        print(title[i].text)
-        print(price[i].text)
-        print(img_Src[i].get_attribute('src'))
+        if keyword.lower() in title[i].text.lower():
+
+        
+            print("="*30)
+            
+            print(title[i].text)
+
+            print(price[i].text)
+            int_price = price[i].text.replace('Rs. ', '')
+            price_list.append(int_price)
+            print(img_Src[i].get_attribute('src'))
+
     # print(product.text)
+    print(price_list)
+    print("Min. price is : ", min(price_list))
+
+    driver.quit()
 
 
 if __name__ == '__main__':
-    main("Iphone 12")
+    main("Iphone 13 ")
