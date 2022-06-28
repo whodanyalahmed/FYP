@@ -1,0 +1,18 @@
+{
+    "0": {
+        "path": "static/Resources/Images/iphone11.png",
+        "value": "IPhone 11",
+        "descriptionMin": "Iphone avaliable as a fresh piece without box. made in korea.",
+        "descriptionMax": "Iphone in geniun condition, with all equipments.",
+        "min": "24000",
+        "max": "86400"
+    },
+    "1": {
+        "path": "static/Resources/Images/samsung-galaxy-s20-.jpg",
+        "value": "Samsung Galaxy S20",
+        "descriptionMin": "Samsung Galaxy avaliable in geniun condition with charger.",
+        "descriptionMax": "Samsung Galaxy S20 original in resonable prices with all equipments.",
+        "min": "18100",
+        "max": "55200"
+    }
+}

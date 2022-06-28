@@ -1,0 +1,23 @@
+.d3{
+    margin: 11.5em auto;
+}
+.heading{
+    text-align: center;
+    margin: 0;
+    padding: 0;
+    color: #343a40;
+}
+
+.result{
+    background-color: whitesmoke;
+    height: auto;
+    padding: 2em;
+}
+
+.h{
+    padding: 3em;
+}
+.space{
+    margin-left: 40px;
+    margin-right: 40px;
+}
