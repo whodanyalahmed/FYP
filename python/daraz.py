@@ -100,14 +100,13 @@ def main(keyword):
         if v < minprice:
             minprice = v
             minname = k
-            mincount += 1
 
-    print("Min. price is : ", min(price_list))
+    print("Min. price is : ", minprice)
 
     # return minprice,minname and iamge_link with mincount as index
 
     driver.quit()
-    return {"price": minprice, "name": minname, "src": image_list[mincount]}
+    return {"price": minprice, "name": minname, "src": image_list[price_list.index(str(minprice))]}
 
 
 if __name__ == '__main__':
