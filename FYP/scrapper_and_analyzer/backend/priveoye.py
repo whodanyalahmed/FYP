@@ -42,7 +42,7 @@ minname = ""
 mincount = 0
 
 
-def main(keyword):
+def priceOye_main(keyword):
     global minprice
     global minname
     global mincount
@@ -96,5 +96,5 @@ def main(keyword):
 
 
 if __name__ == '__main__':
-    d = main("Iphone 11")
+    d = priceOye_main("Iphone 11")
     print(d)

@@ -42,7 +42,7 @@ minname = ""
 mincount = 0
 
 
-def main(keyword):
+def daraz_main(keyword):
     global minprice
     global minname
     global mincount
@@ -110,5 +110,5 @@ def main(keyword):
 
 
 if __name__ == '__main__':
-    d = main("Iphone 13")
+    d = daraz_main("Iphone 13")
     print(d)

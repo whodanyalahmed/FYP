@@ -68,10 +68,16 @@
           <h2>Enter the Desired <b>PHONE</b> You Wanna Crawl...</h2>
         </div>
         <div class="form">
-          <form action="{% url 'results' %}" class="searchform order-lg-last">
+          <form
+            action="{% url 'results' %}"
+            method="get"
+            class="searchform order-lg-last"
+          >
             <div class="form-group d-flex">
+              {% csrf_token %}
               <input
                 type="text"
+                name="keyword"
                 class="m form-control pl-3"
                 placeholder="Search your product"
                 id="values"
@@ -88,7 +94,7 @@
     <div class="container">
       <div class="row justify-content-between">
         <div class="col">
-          <a class="navbar-brand" href="index.html"
+          <a class="navbar-brand" href="{% url 'index' %}"
             >Product Scraper & Analyzer<span>Crawl your desired phone</span></a
           >
         </div>

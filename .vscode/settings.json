@@ -1,0 +1,5 @@
+{
+    "python.analysis.extraPaths": [
+        "./FYP/scrapper_and_analyzer/python"
+    ]
+}
