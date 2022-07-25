@@ -1,6 +1,8 @@
-from backend.priveoye import priceOye_main
-from backend.daraz import daraz_main
+from scrapper_and_analyzer.backend.priceoye import priceOye_main
+from scrapper_and_analyzer.backend.daraz import daraz_main
 from django.shortcuts import render
+import sys
+sys.path.append('../')
 
 # import daraz.py from python folder
 # Create your views here.
@@ -23,6 +25,6 @@ def result(request):
         priceOye = priceOye_main(keyword)
         print(daraz)
         print(priceOye)
-        return render(request, 'result.html', {'daraz': daraz, 'priceOye': priceOye})
+        return render(request, 'results.html', {'daraz': daraz, 'priceOye': priceOye})
 
     return render(request, 'results.html')

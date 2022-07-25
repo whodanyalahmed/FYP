@@ -85,6 +85,7 @@ def daraz_main(keyword):
             title_list.append(title[i].text)
             print(price[i].text)
             int_price = price[i].text.replace('Rs. ', '')
+            int_price = int_price.replace(',', '')
             price_list.append(int_price)
             print(img_Src[i].get_attribute('src'))
             image_list.append(img_Src[i].get_attribute('src'))
