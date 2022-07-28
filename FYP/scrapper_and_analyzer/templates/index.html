@@ -26,6 +26,17 @@
   </head>
 
   <body>
+    <div id="loader">
+      <div class="grid place-items-center h-screen">
+        <div class="inline-flex items-center px-4 py-2 font-semibold leading-6 text-sm shadow rounded-md text-white bg-indigo-500 hover:bg-indigo-400 transition ease-in-out duration-150 cursor-not-allowed" disabled="">
+          <svg class="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+          </svg>
+          Processing...
+        </div>
+      </div>
+    </div>
     <section class="ftco-section">
       <!-- START nav -->
       <nav
@@ -70,7 +81,7 @@
         <div class="form">
           <form
             action="{% url 'results' %}"
-            method="get"
+            method="Get"
             class="searchform order-lg-last"
           >
             <div class="form-group d-flex">
@@ -127,10 +138,21 @@
         </div>
       </div>
     </div>
+    <script>
+      {% comment %} hide loader when page is fully loaded {% endcomment %}
+      window.onload = function() {
+        setTimeout(function() {
+          
+          $("#loader").fadeOut("slow");
+        }, 1000);
+      };
+    </script>
     <script src="{% static 'js/app.js' %}"></script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
+    
+    <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>

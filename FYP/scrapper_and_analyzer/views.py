@@ -19,12 +19,17 @@ def result(request):
     # get request values
     if request.method == 'GET':
         keyword = request.GET.get('keyword')
-        print(keyword)
-        # call scrapper function
-        daraz = daraz_main(keyword)
-        priceOye = priceOye_main(keyword)
-        print(daraz)
-        print(priceOye)
-        return render(request, 'results.html', {'daraz': daraz, 'priceOye': priceOye})
+        # check if keyword exists
+        if(not bool(keyword)):
+            print("in if")
 
-    return render(request, 'results.html')
+            return render(request, 'results.html', context={'msg': "error"})
+        else:
+            print(keyword)
+            # call scrapper function
+            print("in elif")
+            daraz = daraz_main(keyword)
+            priceOye = priceOye_main(keyword)
+            print(daraz)
+            print(priceOye)
+            return render(request, 'results.html', context={'msg': "success", 'daraz': daraz, 'priceOye': priceOye})
