@@ -5,7 +5,6 @@ var csrf = document.getElementsByName("csrfmiddlewaretoken")[0];
 console.log(csrf);
 but.addEventListener("click", () => {
   if (getValue.value == "") {
-    alert("Please enter phone name!");
     return;
   } else {
     sessionStorage.setItem(
