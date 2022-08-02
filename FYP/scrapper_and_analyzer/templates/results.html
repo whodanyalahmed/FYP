@@ -74,19 +74,26 @@
       </div>
     </div>
     {% if msg == "error" %}
-
-    <div class="row" >
-      <div class="col-md"></div>
-      <div class="col-md mt-5">
-        
-        <div class="alert alert-danger">
-          
-          <h2 class="text-center"> <i class="fa fa-exclamation-circle text-red-700" aria-hidden="true"></i> {{text}}</h2>
+    {% comment %} new msg box {% endcomment %}
+    <div class="grid place-items-center h-96 mt-10">  
+      <div class="container">
+        <div class="shadow hover:mb-10 ease-in duration-300" role="alert">
+          <div class="flex">
+            <div class="bg-red-600 w-16 text-center p-2">
+              <div class="flex justify-center h-full items-center">
+                <div class="text-slate-100"><i class="fa fa-exclamation-circle text-2xl" aria-hidden="true"></i></div>
+              </div>
+            </div>
+            <div class="bg-white border-r-4 border-red-400 w-full p-4">
+              <div>
+                <p class="text-gray-600 font-bold text-xl">Error</p>
+                <p class="text-gray-600 text-sm">{{text}}</p>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      <div class="col-md"></div>
     </div>
-
     {% elif msg == "success" %}
     <div class="display" id="dis" style="display:block;">
       <div class="d-flex justify-content-center h">
