@@ -81,8 +81,9 @@
         <div class="form">
           <form
             action="{% url 'results' %}"
-            method="Get"
+            method="POST"
             class="searchform order-lg-last"
+            id="searchform"
           >
             <div class="form-group d-flex">
               {% csrf_token %}
@@ -138,8 +139,21 @@
         </div>
       </div>
     </div>
+    
+    <script src="{% static 'js/app.js' %}"></script>
+    <script src="{% static 'js/jquery.min.js' %}"></script>
+    <script src="{% static 'js/popper.js' %}"></script>
+    <script src="{% static 'js/bootstrap.min.js' %}"></script>
+    <script src="{% static 'js/main.js' %}"></script>
     <script>
-      {% comment %} hide loader when page is fully loaded {% endcomment %}
+      $('#searchform').on('submit', function(e){
+        
+        setTimeout(function(){
+          $('#loader').fadeIn();
+          $("#searchBut").attr("disabled", true);
+        }, 500);
+
+      });
       window.onload = function() {
         setTimeout(function() {
           
@@ -147,11 +161,6 @@
         }, 1000);
       };
     </script>
-    <script src="{% static 'js/app.js' %}"></script>
-    <script src="{% static 'js/jquery.min.js' %}"></script>
-    <script src="{% static 'js/popper.js' %}"></script>
-    <script src="{% static 'js/bootstrap.min.js' %}"></script>
-    <script src="{% static 'js/main.js' %}"></script>
     
     <script src="https://cdn.tailwindcss.com"></script>
   </body>

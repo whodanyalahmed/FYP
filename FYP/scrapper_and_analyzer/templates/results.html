@@ -81,24 +81,24 @@
         
         <div class="alert alert-danger">
           
-          <h2 class="text-center"> <i class="fa fa-exclamation-circle text-red-700" aria-hidden="true"></i> No keyword found!</h2>
+          <h2 class="text-center"> <i class="fa fa-exclamation-circle text-red-700" aria-hidden="true"></i> {{text}}</h2>
         </div>
       </div>
       <div class="col-md"></div>
     </div>
 
     {% elif msg == "success" %}
-    <div class="display" id="dis">
+    <div class="display" id="dis" style="display:block;">
       <div class="d-flex justify-content-center h">
         <div class="card" style="width: 18rem">
           <div class="card-header">
             <h5 class="text-center">Minimum Price</h5>
           </div>
-          <img class="card-img-top" src="" id="img" alt="min image" />
+          <img class="card-img-top" src="{{min_price_product.src}}" id="img" alt="min image" />
           <div class="card-body">
-            <h5 class="card-title" id="title">Card title</h5>
+            <h5 class="card-title" id="title">{{min_price_product.name}}</h5>
             <p class="card-text" id="descmin"></p>
-            <p id="price"></p>
+            <p class="text-green-500 font-weight-bold">Rs. {{min_price_product.price}} /=</p>
             <a href="#" class="btn btn-primary">Get Details</a>
           </div>
         </div>
@@ -107,19 +107,17 @@
           <div class="card-header">
             <h5 class="text-center">Maximum Price</h5>
           </div>
-          <img class="card-img-top" src="" id="img1" alt="max image" />
+          <img class="card-img-top" src="{{max_price_product.src}}" id="img1" alt="max image" />
           <div class="card-body">
-            <h5 class="card-title" id="title1">Card title</h5>
+            <h5 class="card-title" id="title1">{{max_price_product.name}}</h5>
             <p class="card-text" id="descmax"></p>
-            <p id="price1"></p>
+            <p class="text-red-600 font-weight-bold">Rs. {{max_price_product.price}} /=</p>
             <a href="#" class="btn btn-primary">Get Details</a>
           </div>
         </div>
       </div>
     </div>
-    <div id="cont" style="display: none">
-      <h2 class="text-center">No such item found!</h2>
-    </div>
+
     <div class="container">
       <div class="col-12">
         <table class="table table-striped table-hover">
@@ -134,17 +132,17 @@
             <tr>
               <td>Daraz.pk</td>
               <td>{{ daraz.name }}</td>
-              <td>1961</td>
+              <td>{{ daraz.price }}</td>
             </tr>
             <tr>
               <td>PriceOye.pk</td>
-              <td>The Eagles</td>
-              <td>1972</td>
+              <td>{{ priceOye.name }}</td>
+              <td>{{ priceOye.price }}</td>
             </tr>
             <tr>
-              <td>Shining Star</td>
-              <td>Earth, Wind, and Fire</td>
-              <td>1975</td>
+              <td>Third Website</td>
+              <td>{{ third_website.name }}</td>
+              <td>{{ third_website.price}}</td>
             </tr>
           </tbody>
         </table>
@@ -153,16 +151,16 @@
     
     {% endif %}
     <script>
-      {% comment %} hide loader when page is fully loaded {% endcomment %}
       window.onload = function() {
-        document.getElementById("loader").style.display = "none";
+        setTimeout(() => {
+          document.getElementById("loader").style.display = "none";
+        }, 2000);
       };
     </script>
     <script src="{% static 'js/jquery.min.js' %}"></script>
     <script src="{% static 'js/popper.js' %}"></script>
     <script src="{% static 'js/bootstrap.min.js' %}"></script>
     <script src="{% static 'js/main.js' %}"></script>
-    <script src="{% static 'js_resource/app.js' %}"></script>
     <script src="https://cdn.tailwindcss.com"></script>
   </body>
 </html>
