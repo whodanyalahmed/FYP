@@ -76,6 +76,7 @@ def daraz_main(keyword):
     price_list = []
     title_list = []
     image_list = []
+    product_list = []
     for i in range(len(title)):
         if keyword.lower() in title[i].text.lower():
 
